@@ -20,6 +20,8 @@ const PlaceOrder = () => {
     phone:""
   })
 
+  const [paymentMethod, setPaymentMethod] = useState("COD");
+
   const onChangeHandler = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -40,6 +42,7 @@ const PlaceOrder = () => {
       address:data,
       items:orderItems,
       amount:getTotalCartAmount()+2,
+      paymentMethod
     }
     let response = await axios.post(url+"/api/order/place",orderData,{headers:{token}});
     if (response.data.success) {
@@ -63,6 +66,10 @@ const PlaceOrder = () => {
     }
   },[token])
 
+  const handlePlaceOrder = () => {
+    navigate('/myorders');
+  };
+
   return (
     <form onSubmit={placeOrder} className='place-order'>
       <div className="place-order-left">
@@ -84,10 +91,10 @@ const PlaceOrder = () => {
         <input required name='phone' onChange={onChangeHandler} value={data.phone} type="text" placeholder='Phone' />
       </div>
       <div className="place-order-right">
-      <div className="cart-total">
+        <div className="cart-total">
           <h2>Cart Totals</h2>
           <div>
-          <div className="cart-total-details">
+            <div className="cart-total-details">
               <p>Subtotal</p>
               <p>${getTotalCartAmount()}</p>
             </div>
@@ -102,7 +109,19 @@ const PlaceOrder = () => {
               <b>${getTotalCartAmount()===0?0:getTotalCartAmount()+2}</b>
             </div>
           </div>
-          <button type='submit'>PROCEED TO PAYMENT</button>
+          <div className="payment-method">
+          <h2>Payment Method</h2>
+            <div className="payment-options">
+              <div className={`payment-option ${paymentMethod === "COD" ? "active" : ""}`} onClick={() => setPaymentMethod("COD")}>COD (Cash on delivery)
+              </div>
+              <div className={`payment-option ${paymentMethod === "Stripe" ? "active" : ""}`} onClick={() => setPaymentMethod("Stripe")}>Stripe (Credit / Debit)
+              </div>
+            </div>
+          </div>
+          <div className="buttons">
+            <button type='submit'>PROCEED TO PAYMENT</button>
+            <button type='button' onClick={handlePlaceOrder}>PLACE ORDER</button>
+          </div>
         </div>
       </div>
     </form>

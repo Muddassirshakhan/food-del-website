@@ -30,6 +30,48 @@
     width: 100%;
     max-width: max (40%,500px);
 }
-.place-order .cart-total button{
+.payment-method h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.payment-option {
+    width: 250px;
+    max-width: 300px;
+    border: 1px solid #d1d1d1;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+.payment-option.active {
+    border-color: tomato;
+    background-color: #ffe8e8;
+    font-weight: bold;
+}
+.payment-option:hover {
+    border-color: tomato;
+}
+.place-order .buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
     margin-top: 30px;
+}
+.place-order .buttons button {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: tomato;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
 }
