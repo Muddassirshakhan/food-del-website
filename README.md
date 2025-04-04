@@ -4,8 +4,9 @@
 This Full Stack Food Delivery Website is a dynamic and user-friendly platform designed to streamline the food ordering process. It provides a seamless experience for both users and restaurant owners, integrating modern web technologies and secure payment systems. This project was collaboratively developed by me and my teammate, showcasing our skills in full-stack development.
 
 ### 👨‍💻 Developed By
-- **[Koyyada Anusha]**
-- **[Muddassir Shakhan]**
+This project was collaboratively developed by:
+- **[Muddassir Shakhan ](https://github.com/Muddassirshakhan)** 
+- **[Koyyada Anusha](https://github.com/Anusha-831)**
 
 This project was developed as part of our learning journey, focusing on real-world application development. We aimed to create an optimized, user-friendly, and scalable platform that could serve as a strong foundation for a professional food delivery system.
 
